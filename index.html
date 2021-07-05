@@ -1,0 +1,27 @@
+<script>
+  var options = {
+    URL: 'https://api.sheetson.com/v2/sheets/Test',
+    settings: {
+      method: 'POST',
+      headers: {
+        Authorization: 'Bearer ',
+        'Content-Type': 'application/json',
+        'X-Spreadsheet-Id': '1-0vve6neWCC5O-SNVD0zqUaUg_us-_jJ5omz3gdZOi0'
+      },
+      body: JSON.stringify({a: "1", b: "2"});
+    }
+  }
+  
+  async function insertRow(){
+    const response = await fetch(options.URL, options.settings);
+    
+    try {
+      const data = response.json();
+      console.log(data);
+    } catch (e){
+      console.log(e)
+    }
+  }
+  
+  insertRow();
+</script>
